@@ -1,10 +1,12 @@
 const Resource = require("../Resource");
 
 module.exports = (args) => {
-  // console.log("from ping", args);
-  // console.log("from ping", args._[1]);
+  console.log("from ping", args);
 
-  const resource = new Resource(args._[1], args._[2]);
+  const name = args.n || args.name;
+  const url = args.u || args.url;
+
+  const resource = new Resource(name, url);
 
   resource.ping();
 };
