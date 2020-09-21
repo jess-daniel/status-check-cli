@@ -16,10 +16,10 @@ module.exports = () => {
       require("./cmds/ping")(args);
       break;
     case "help":
-      console.log("Help has been ran");
+      require("./cmds/help")(args);
       break;
     default:
-      console.error(`${cmd} not found`);
+      console.error(`${cmd} is not a valid command. Run --help or -h`);
       break;
   }
 };
