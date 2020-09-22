@@ -2,7 +2,7 @@ const axios = require("axios");
 
 class Resource {
   constructor(name, url) {
-    this.name = name;
+    this.name = name || "Resource";
     this.url = url;
   }
 

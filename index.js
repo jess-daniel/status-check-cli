@@ -1,4 +1,6 @@
 const minimist = require("minimist");
+require("dotenv").config();
+require("dotenv").config();
 
 module.exports = () => {
   const args = minimist(process.argv.slice(2));
@@ -9,6 +11,12 @@ module.exports = () => {
     cmd = "help";
   } else if (args.ping || args.p) {
     cmd = "ping";
+  } else if (args.version || args.v) {
+    cmd = "version";
+  } else if (args.login || args.l) {
+    cmd = "login";
+  } else if (args.register || args.r) {
+    cmd = "register";
   }
 
   switch (cmd) {
@@ -17,6 +25,15 @@ module.exports = () => {
       break;
     case "help":
       require("./cmds/help")(args);
+      break;
+    case "version":
+      require("./cmds/version")();
+      break;
+    case "login":
+      require("./cmds/login")(args);
+      break;
+    case "register":
+      require("./cmds/register")(args);
       break;
     default:
       console.error(`${cmd} is not a valid command. Run --help or -h`);
