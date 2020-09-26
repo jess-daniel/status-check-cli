@@ -1,5 +1,3 @@
-const minimist = require("minimist");
-require("dotenv").config();
 require("dotenv").config();
 
 module.exports = () => {
@@ -17,6 +15,8 @@ module.exports = () => {
     cmd = "login";
   } else if (args.register || args.r) {
     cmd = "register";
+  } else if (args.check || args.c) {
+    cmd = "check";
   }
 
   switch (cmd) {
@@ -34,6 +34,9 @@ module.exports = () => {
       break;
     case "register":
       require("./cmds/register")(args);
+      break;
+    case "check":
+      require("./cmds/check")(args);
       break;
     default:
       console.error(`${cmd} is not a valid command. Run --help or -h`);
