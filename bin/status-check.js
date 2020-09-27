@@ -30,4 +30,22 @@ program
     await User.register();
   });
 
+program
+  .command("add")
+  .description("add a resource to be monitored")
+  .option(
+    "-i, --interval <interval>",
+    "Set the interval to update the status of the resource"
+  )
+  .action(async (cmd) => {
+    await Resource.addResource(cmd);
+  });
+
+program
+  .command("check <resource_name>")
+  .description("Check the status of a stored resource")
+  .action(async () => {
+    await Resource.getResource();
+  });
+
 program.parse(process.argv);
