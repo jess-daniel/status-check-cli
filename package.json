@@ -1,5 +1,5 @@
 {
-  "name": "node-status-cli",
+  "name": "status-check-cli",
   "version": "1.0.0",
   "description": "Monitor the status of your API's",
   "main": "bin/status-check.js",
@@ -9,7 +9,7 @@
   "author": "Jess Daniel",
   "license": "MIT",
   "bin": {
-    "status-check": "bin/status-check.js"
+    "sc": "bin/status-check.js"
   },
   "dependencies": {
     "axios": "^0.20.0",
