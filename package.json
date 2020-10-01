@@ -1,6 +1,6 @@
 {
   "name": "status-check-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Monitor the status of your API's",
   "main": "bin/status-check.js",
   "scripts": {
