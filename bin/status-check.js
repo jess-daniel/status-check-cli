@@ -3,7 +3,6 @@ const { program } = require("commander");
 const { version } = require("../package.json");
 const Resource = require("../lib/Resource");
 const User = require("../lib/User");
-require("dotenv").config();
 
 program.version(version);
 //   .option("-p, --ping", "Quickly get the status code of an online resource");
@@ -24,6 +23,16 @@ program
   });
 
 program
+  .command("whoami")
+  .description("See the username of the current user")
+  .action(User.whoami);
+
+program
+  .command("logout")
+  .description("Logout of the status check system")
+  .action(User.logout);
+
+program
   .command("register")
   .description("Register a new account")
   .action(async () => {
@@ -40,6 +49,11 @@ program
   .action(async (cmd) => {
     await Resource.addResource(cmd);
   });
+
+program
+  .command("delete")
+  .description("Deletes resource from database and stops cron job")
+  .action(Resource.deleteResource);
 
 program
   .command("check <resource_name>")
